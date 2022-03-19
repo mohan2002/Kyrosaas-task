@@ -1,0 +1,54 @@
+.Navbar-container{
+    height: 10vh;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 0px;
+}
+
+.Logo{
+    height: 140px;
+}
+
+.menu-icon{
+    height: 15px;
+    cursor: pointer;
+    display: none;
+}
+
+.left-nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile{
+    background: #F39C11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    font-weight: 500;
+    color: white;
+}
+
+.right-nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+
+@media all and (max-width:800px){
+    .menu-icon{
+        display: block;
+    }
+}

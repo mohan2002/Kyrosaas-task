@@ -1,0 +1,19 @@
+.datapart-container{
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    margin: 0px;
+}
+
+.schedule{
+    font-size: 1.3rem;
+    color: #151D3B;
+    margin-top: -17px;
+    padding-bottom: 5px;
+}
+
+.datapart-hero{
+    height: 97%;
+    width: 100%;
+    background-color: white;
+}

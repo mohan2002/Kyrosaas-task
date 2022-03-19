@@ -7,14 +7,12 @@ function App() {
   return (
     <div className="App">
       <Router>
-      
-      {/* NAVBAR */}
-       <Navbar/>
+            {/* NAVBAR */}
+            <Navbar/>
 
 
-      {/* DASHBOARD */}      
-      <Dashboard/>
-
+            {/* DASHBOARD */}      
+            <Dashboard/>
       </Router>
     </div>
   );

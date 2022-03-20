@@ -53,7 +53,7 @@ function Datapart() {
         console.log(error);
       });
 
-     await axios("https://kyrosaas.herokuapp.com/ompleteddetails")
+     await axios("https://kyrosaas.herokuapp.com/completeddetails")
       .then(function (response) {
         setcompleteddetails(response.data);
       })

@@ -31,4 +31,7 @@
         display: none;
         width: 40vw;
     }
+    .datapart{
+        width: 100vw;
+    }
 }

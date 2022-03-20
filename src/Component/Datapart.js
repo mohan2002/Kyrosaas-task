@@ -13,6 +13,7 @@ import {CgFileDocument} from "react-icons/cg"
 import {AiOutlineLoading3Quarters} from "react-icons/ai"
 import {GrCompliance} from "react-icons/gr"
 import {IoIosArrowForward} from "react-icons/io"
+import DataCards from './DataCards';
 
 
 
@@ -120,6 +121,20 @@ function Datapart() {
           </div>
         </section>
         
+
+
+        <section className='section-datas'>
+              <DataCards/>
+              <DataCards/>
+              <DataCards/>
+              <DataCards/>
+              <DataCards/>
+              <DataCards/>
+              <DataCards/>
+              <DataCards/>
+              <DataCards/>
+              <DataCards/>
+        </section>
       </div>     
     </div>
   )

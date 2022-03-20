@@ -3,6 +3,8 @@
     width: 100%;
     padding: 20px;
     margin: 0px;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .schedule{
@@ -61,6 +63,7 @@
     border-radius: 2px;
     font-size: 0.8rem;
     font-weight: 600;
+    cursor: pointer;
 }
 .reset{
     color: black;
@@ -85,6 +88,7 @@
     padding: 10px;
     font-weight: 500;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 
@@ -93,3 +97,22 @@
     flex-direction: row;
     gap: 10px;
 }
+
+.section-datas{
+    height: 79%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 8px;
+    overflow-y: scroll;
+}
+
+.section-datas::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+.section-datas::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }

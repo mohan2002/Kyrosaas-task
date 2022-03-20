@@ -14,6 +14,8 @@ import {AiOutlineLoading3Quarters} from "react-icons/ai"
 import {GrCompliance} from "react-icons/gr"
 import {IoIosArrowForward} from "react-icons/io"
 import DataCards from './DataCards';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 
 
@@ -24,12 +26,45 @@ function Datapart() {
   const filestyle = {color:'blue',fontSize:"1.3rem"}
   const loadstyle = {color:'orange',fontSize:"1.3rem"}
   const completestyle = {color:'green',fontSize:"1.3rem"}
+  const [tododetails,setTododetails] = useState();
+  const [progressdetails,setProgressdetails] = useState();
+  const [completeddetails,setcompleteddetails] = useState();
   const arrow = {color:'black',fontSize:"1.2rem",fontWeight:"600"};
+
 
   const handleName = (event) => {
     setName(event.target.value);
   };
+  
+  useEffect(async() => {
+    await axios("https://kyrosaas.herokuapp.com/tododetails")
+      .then(function (response) {
+        setTododetails(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
+      await axios("https://kyrosaas.herokuapp.com/Progress")
+      .then(function (response) {
+        setProgressdetails(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+     await axios("https://kyrosaas.herokuapp.com/completeddetails")
+      .then(function (response) {
+        setcompleteddetails(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+  },[1])
+
+
+  console.log(tododetails);
   return (
     <div className='datapart-container'>
       <h1 className='schedule'>Schedule</h1>
@@ -124,16 +159,31 @@ function Datapart() {
 
 
         <section className='section-datas'>
-              <DataCards/>
-              <DataCards/>
-              <DataCards/>
-              <DataCards/>
-              <DataCards/>
-              <DataCards/>
-              <DataCards/>
-              <DataCards/>
-              <DataCards/>
-              <DataCards/>
+            <div className='section-statuses'>
+                
+                {
+                  tododetails && tododetails.map((tododetail) => (
+                    <DataCards show={true} progress={false} completed={false} details={tododetail}/>
+                  ))
+                }
+
+            </div>
+
+            <div className='section-statuses'>
+                {
+                  progressdetails && progressdetails.map((progressdetail) => (
+                    <DataCards show={true} progress={true} completed={false} details={progressdetail}/>
+                  ))
+                }
+            </div>
+
+            <div className='section-statuses'>
+                {
+                  completeddetails.map((completeddetail) => (
+                    <DataCards show={false} progress={false}  completed={true} details={completeddetail}/>
+                  ))
+                }
+            </div>
         </section>
       </div>     
     </div>

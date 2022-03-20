@@ -5,22 +5,22 @@ import {VscWarning} from "react-icons/vsc"
 import {BsGraphUp} from "react-icons/bs"
 import {HiOutlineLightBulb} from "react-icons/hi"
 
-function DataCards() {
+function DataCards({show,progress,completed,details}) {
   const tempstyle = {fontSize:"1rem"};
   return (
-    <div className='card-container'>
-        <div className='project-details'>
-            <p className='project-name'>TD1160 - Project name</p>
-            <p className='project-schedule'>Baseline schedule</p>
-            <p className='project-engineer'>Line Design Engineering</p>
-            <p className='project-date'>08/10/2020-08/10/2020</p>
+    <div className={show ? "card-container" : "card-container show"}>
+        <div className={show ? 'project-details' : 'project-details s1'}>
+            <p className='project-name'>{details.projectname}</p>
+            <p className='project-schedule'>{details.schedule}</p>
+            <p className='project-engineer'>{details.type}</p>
+            <p className='project-date'>{details.duration}</p>
         </div>
 
 
-        <div className='project-stats'>
-            <div className='one'>
+        <div className={show ? 'project-stats' : 'project-stats s2'}>
+            <div className={progress ? 'one s3' : 'one'  && completed ? 'one s4' : 'one'}>
                 <BsGraphUp style={tempstyle}/>
-                <p>| 0.00%</p>
+                <p>| {details.percentage}</p>
             </div>
             <div className='two'>
                 <CgFileDocument style={tempstyle}/>
@@ -32,12 +32,15 @@ function DataCards() {
             </div>
         </div>
 
-        <div className='project-duration'>
-            <div className='dr'>
-                <HiOutlineLightBulb style={tempstyle}/>
-                <p> | Predicted Completion Time : 142 days</p>
+        {
+            show && 
+            <div className='project-duration'>
+                <div className='dr'>
+                    <HiOutlineLightBulb style={tempstyle}/>
+                    <p> | Predicted Completion Time : {details.predictedduration}</p>
+                </div>
             </div>
-        </div>
+        }
     </div>
   )
 }

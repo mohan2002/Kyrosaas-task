@@ -53,7 +53,7 @@ function Datapart() {
         console.log(error);
       });
 
-     await axios("https://kyrosaas.herokuapp.com/completeddetails")
+     await axios("https://kyrosaas.herokuapp.com/ompleteddetails")
       .then(function (response) {
         setcompleteddetails(response.data);
       })
@@ -63,8 +63,6 @@ function Datapart() {
 
   },[1])
 
-
-  console.log(tododetails);
   return (
     <div className='datapart-container'>
       <h1 className='schedule'>Schedule</h1>
@@ -179,7 +177,7 @@ function Datapart() {
 
             <div className='section-statuses'>
                 {
-                  completeddetails.map((completeddetail) => (
+                  completeddetails&&completeddetails.map((completeddetail) => (
                     <DataCards show={false} progress={false}  completed={true} details={completeddetail}/>
                   ))
                 }

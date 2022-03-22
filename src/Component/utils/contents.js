@@ -38,7 +38,7 @@ const contents = [
     },
     {
         icon:<VscTools/>,
-        text:"Tools"
+        text:"Tool"
     },
 ]
 
